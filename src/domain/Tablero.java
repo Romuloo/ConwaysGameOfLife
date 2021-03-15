@@ -7,12 +7,13 @@ import java.util.Scanner;
 
 public class Tablero {
     private static int DIMENSION = 30;
-    private int[][] estadoActual = new int[DIMENSION][DIMENSION];
-    private int[][] estadoSiguiente = new int[DIMENSION][DIMENSION];
+    private int[][] estadoActual = new int[DIMENSION][DIMENSION], estadoSiguiente = new int[DIMENSION][DIMENSION];
     private Random ran = new Random(System.nanoTime());
 
-
-
+    /**
+     * Este método lee un fichero e introduce los datos de este en una matriz.
+     * @param name nombre del fichero.
+     */
 
     //Este metodo nos lee una matriz de un fichero.
     public void leerEstadoActual(String name){
