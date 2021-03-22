@@ -61,8 +61,8 @@ public class Tablero {
             for(int j = 0; j < DIMENSION; j++) {
                 if (estadoActual[i][j] == 1)
                     if (!sobrevivir(estadoActual, i, j)) estadoSiguiente[i][j] = 0;
-                if (estadoActual[i][j] == 0) ;
-                if (nacer(estadoActual, i, j)) estadoSiguiente[i][j] = 1;
+                if (estadoActual[i][j] == 0)
+                    if (nacer(estadoActual, i, j)) estadoSiguiente[i][j] = 1;
             }
         }
 
