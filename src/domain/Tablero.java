@@ -1,10 +1,29 @@
+/**
+ Copyright [2021] [Javier Linares Castrillón]
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
 package domain;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
+/**
+ * @author Javier Linares Castrillón
+ */
 
+/**
+ * Esta clase es la que define a un tablero y aplica el algoritmo del juego de la vida.
+ */
 public class Tablero {
     private static int DIMENSION = 30;
     private int[][] estadoActual = new int[DIMENSION][DIMENSION], estadoSiguiente = new int[DIMENSION][DIMENSION];
@@ -31,10 +50,11 @@ public class Tablero {
     }
 
 
-    /******************************************************** * Genera un estado inicial aleatorio. Para cada celda
+    /**
+     *  Genera un estado inicial aleatorio. Para cada celda
      * genera un número aleatorio en el intervalo [0, 1). Si * el número es menor que 0,5, entonces la celda está
      * inicialmente viva. En caso contrario, está muerta.
-     *******************************************************/
+    */
     public void generarEstadoActualPorMontecarlo(){
         for(int i = 0; i < DIMENSION; i++)
             for(int j = 0; j < DIMENSION; j++)
