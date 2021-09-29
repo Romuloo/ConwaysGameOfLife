@@ -25,9 +25,10 @@ import java.util.Scanner;
  * Esta clase es la que define a un tablero y aplica el algoritmo del juego de la vida.
  */
 public class Tablero {
-    private static int DIMENSION = 30;
-    private int[][] estadoActual = new int[DIMENSION][DIMENSION], estadoSiguiente = new int[DIMENSION][DIMENSION];
-    private Random ran = new Random(System.nanoTime());
+    private static final int DIMENSION = 30;
+    private final int[][] estadoActual = new int[DIMENSION][DIMENSION];
+    private final int[][] estadoSiguiente = new int[DIMENSION][DIMENSION];
+    private final Random ran = new Random(System.nanoTime());
 
     /**
      * Este método lee un fichero e introduce los datos de este en una matriz.
@@ -105,9 +106,9 @@ public class Tablero {
                 for(int y = j + 1; y >= (j-1); y--)
                     try{
                         if(estado[x][y] == 1) contador++;
-                     }catch (ArrayIndexOutOfBoundsException ai){ }
+                     }catch (ArrayIndexOutOfBoundsException ignored){ }
 
-            return (contador == 3 || contador == 4) ?  true : false; //"contador" tiene un numero valor más (3|4 en vez de 2|3) porque
+            return contador == 3 || contador == 4; //"contador" tiene un numero valor más (3|4 en vez de 2|3) porque
                                                                      //estoy contando también el 1 que estoy mirando. Siempre habrá uno de más.
     }
 
@@ -123,9 +124,9 @@ public class Tablero {
                 for(int y = j + 1; y >= (j-1); y--)
                     try{
                         if(estado[x][y] == 1) contador++;
-                    }catch (ArrayIndexOutOfBoundsException ai){}
+                    }catch (ArrayIndexOutOfBoundsException ignored){}
 
-        return (contador == 3) ? true : false;
+        return contador == 3;
     }
     /**
      * Devuelve, en modo texto, el estado actual.
